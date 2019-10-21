@@ -12,38 +12,42 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email":"test@test.com",
+  "email":"admin@test.com",
   "password":"test123"
 }
 
 ####
 GET http://localhost:3000/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJfaWQiOiI1ZGFkMjFjNzZlMGUwNjMzMzg3NGU1YmYiLCJuYW1lIjoiT3NjYXIgUmVpbm9zYSIsImVtYWlsIjoib3NjYXJAdGVzdC5jb20iLCJfX3YiOjAsImlhdCI6MTU3MTYyNzQ4NywiZXhwIjoxNTcxNjMxMDg3fQ.gpKp-Pv1NT6uWCIrp2KHvdDqWhPMhXyIjfZdHxFxEb4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJfaWQiOiI1ZGFkMjJhMjI1Zjg4NDAzYThlMjdkYWQiLCJuYW1lIjoiYWRtaW4gMSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJfX3YiOjAsImlhdCI6MTU3MTYzMjQyNSwiZXhwIjoxNTcxNjM2MDI1fQ.sKwWQqpW5oKeDWyng1GIFqs7gjNI5MAjgFK9cCgbkwI
 
 ###
 POST http://localhost:3000/api/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJfaWQiOiI1ZGFkMjFjNzZlMGUwNjMzMzg3NGU1YmYiLCJuYW1lIjoiT3NjYXIgUmVpbm9zYSIsImVtYWlsIjoib3NjYXJAdGVzdC5jb20iLCJfX3YiOjAsImlhdCI6MTU3MTYyNzQ4NywiZXhwIjoxNTcxNjMxMDg3fQ.gpKp-Pv1NT6uWCIrp2KHvdDqWhPMhXyIjfZdHxFxEb4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJfaWQiOiI1ZGFkMjJhMjI1Zjg4NDAzYThlMjdkYWQiLCJuYW1lIjoiYWRtaW4gMSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJfX3YiOjAsImlhdCI6MTU3MTYzMjQyNSwiZXhwIjoxNTcxNjM2MDI1fQ.sKwWQqpW5oKeDWyng1GIFqs7gjNI5MAjgFK9cCgbkwI
 
 {
-  "name":"customer 2",
-  "email":"customer2@test.com",
+  "name":"customer 3",
+  "email":"customer3@test.com",
   "role": "Customer",
   "password":"test123"
 }
 ###
-GET  http://localhost:3000/api/users/5dad21c76e0e06333874e5bf
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJfaWQiOiI1ZGFkMjFjNzZlMGUwNjMzMzg3NGU1YmYiLCJuYW1lIjoiT3NjYXIgUmVpbm9zYSIsImVtYWlsIjoib3NjYXJAdGVzdC5jb20iLCJfX3YiOjAsImlhdCI6MTU3MTYyNzQ4NywiZXhwIjoxNTcxNjMxMDg3fQ.gpKp-Pv1NT6uWCIrp2KHvdDqWhPMhXyIjfZdHxFxEb4
+GET  http://localhost:3000/api/users/5dad36abf4664436a4d1fc4a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJfaWQiOiI1ZGFkMjJhMjI1Zjg4NDAzYThlMjdkYWQiLCJuYW1lIjoiYWRtaW4gMSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJfX3YiOjAsImlhdCI6MTU3MTYzMjQyNSwiZXhwIjoxNTcxNjM2MDI1fQ.sKwWQqpW5oKeDWyng1GIFqs7gjNI5MAjgFK9cCgbkwI
 
 ### 
-PUT http://localhost:3000/api/users/5dad21c76e0e06333874e5bf
+PUT http://localhost:3000/api/users/5dad36abf4664436a4d1fc4a
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJfaWQiOiI1ZGFkMjFjNzZlMGUwNjMzMzg3NGU1YmYiLCJuYW1lIjoiT3NjYXIgUmVpbm9zYSIsImVtYWlsIjoib3NjYXJAdGVzdC5jb20iLCJfX3YiOjAsImlhdCI6MTU3MTYyNzQ4NywiZXhwIjoxNTcxNjMxMDg3fQ.gpKp-Pv1NT6uWCIrp2KHvdDqWhPMhXyIjfZdHxFxEb4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJfaWQiOiI1ZGFkMjJhMjI1Zjg4NDAzYThlMjdkYWQiLCJuYW1lIjoiYWRtaW4gMSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJfX3YiOjAsImlhdCI6MTU3MTYzMjQyNSwiZXhwIjoxNTcxNjM2MDI1fQ.sKwWQqpW5oKeDWyng1GIFqs7gjNI5MAjgFK9cCgbkwI
 
 {
-  "name":"customer 2 again",
-  "email":"asd"
+  "name":"customer 3 updated",
+  "email":"test.com"
 }
+
+### 
+DELETE http://localhost:3000/api/users/5dad358565189914d4a25edd
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJfaWQiOiI1ZGFkMjJhMjI1Zjg4NDAzYThlMjdkYWQiLCJuYW1lIjoiYWRtaW4gMSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJfX3YiOjAsImlhdCI6MTU3MTYzMjQyNSwiZXhwIjoxNTcxNjM2MDI1fQ.sKwWQqpW5oKeDWyng1GIFqs7gjNI5MAjgFK9cCgbkwI
 
 ####
 GET http://localhost:3000/api/users

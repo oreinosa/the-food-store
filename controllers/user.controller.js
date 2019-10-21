@@ -1,5 +1,5 @@
-const { User} = require("../models/user.model");
-
+const { User, validate} = require("../models/user.model");
+const bcrypt = require("bcrypt");
 exports.getAllUsers = async (req,res)=>{
   // query users collection without password
   const users = await User.find().select('-password');
@@ -12,9 +12,14 @@ exports.getUserById = async (req,res)=>{
   // check if id is defined
   if(!id) return res.sendStatus(400);
   // query users with id without password
-  const user = await User.findById(id).select('-password');
-  // return object
-  res.json(user);
+  try{
+    const user = await User.findById(id).select('-password');
+    if(!user) return res.sendStatus(404);
+    // return object
+    res.json(user);
+  }catch(err){
+    return res.status(500).send(err);
+  }
 };
 
 exports.createUser = async (req,res)=>{
@@ -34,27 +39,43 @@ exports.createUser = async (req,res)=>{
     email,
     role
   });
+
   try{
-    await user.save();
-  }catch{
-    res.sendStatus(500);
+    let newUser = await user.save();
+    res.sendStatus(201);
+  }catch(err){
+    if (err.name === 'MongoError' && err.code === 11000) {
+      res.sendStatus(409);
+    }
+    res.status(500).send(err);
   }
-  res.sendStatus(201); 
 };
 
 exports.updateUser = async (req, res)=>{
   const { id } = req.params;
   // const { name, email, role } = req.body;
   if(!id) return res.sendStatus(400);
-  user = await User.findByIdAndUpdate(id,req.body, {useFindAndModify: true});
-  if(!user) return res.sendStatus(401);
-  return res.sendStatus(204);
+  try{
+    let user = await User.findByIdAndUpdate(id,{$set:req.body}, {useFindAndModify: true});
+    if(!user) return res.sendStatus(404);
+    res.status(200).json(user);
+  }catch (err){
+    if (err.name === 'MongoError' && err.code === 11000) {
+      res.sendStatus(409);
+    }
+    res.status(500).send(err);
+  }
 };
 
 exports.deleteUser = async (req, res)=>{
   const { id } = req.params;
   if(!id) return res.sendStatus(400);
-  const user = await User.findByIdAndDelete(id);
-  if(!user) return res.sendStatus(402);
-  res.sendStatus(204);
+  try {
+    const user = await User.findOneAndRemove(id);
+    if(!user) return res.sendStatus(404);
+    res.sendStatus(204);
+  }catch (err) {
+    return res.sendStatus(500);
+  }
+
 }

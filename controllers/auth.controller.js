@@ -26,7 +26,7 @@ exports.login = async (req, res) =>{
   const { email, password } = req.body;
   if(!email || !password) res.status(401).send('Please enter an email and password');
   let user = await User.findOne({email});
-  if(!user) res.status(401).send('Wrong email or password');
+  if(!user) return res.status(401).send('Wrong email or password');
   const flag = await bcrypt.compare(password, user.password);
   if(flag){
     user = user.toJSON();
