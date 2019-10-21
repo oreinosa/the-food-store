@@ -71,7 +71,7 @@ exports.deleteUser = async (req, res)=>{
   const { id } = req.params;
   if(!id) return res.sendStatus(400);
   try {
-    const user = await User.findOneAndRemove(id);
+    const user = await User.findByIdAndDelete(id);
     if(!user) return res.sendStatus(404);
     res.sendStatus(204);
   }catch (err) {

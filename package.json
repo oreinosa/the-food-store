@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-start": "nodemon index.js"
+    "dev-startAuth": "nodemon authServer.js",
+    "dev-start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",

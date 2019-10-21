@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { User,  generateAuthToken } = require("../models/user.model");
+const { User,  generateAuthToken, validate } = require("../models/user.model");
 
 exports.register = async (req, res) => {
   // validate the request body first
